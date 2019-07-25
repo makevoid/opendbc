@@ -269,6 +269,14 @@ BO_ 710 RADAR_RAW: 8 XXX
  SG_ ACC_ENABLED1 : 20|5@0+ (1,0) [0|31] "" XXX
  SG_ RADAR_RAW1 : 15|8@0- (1,0) [0|255] "" XXX
 
+BO_ 839 untitled: 8 XXX
+
+BO_ 840 untitled: 8 XXX
+
+BO_ 1156 untitled: 8 XXX
+
+BO_ 1176 untitled: 8 XXX
+
 
 
 
