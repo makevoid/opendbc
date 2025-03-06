@@ -12,8 +12,8 @@ Ecu = CarParams.Ecu
 
 
 class CarControllerParams:
-  ACCEL_MIN = -3.5 # m/s
-  ACCEL_MAX = 2.0 # m/s
+  ACCEL_MIN = -2.8 # m/s
+  ACCEL_MAX = 1.0 # m/s
 
   def __init__(self, CP):
     self.STEER_DELTA_UP = 3
@@ -25,7 +25,7 @@ class CarControllerParams:
     self.STEER_STEP = 1  # 100 Hz
 
     if CP.flags & HyundaiFlags.CANFD:
-      self.STEER_MAX = 270
+      self.STEER_MAX = 384 # IONIQ 2016
       self.STEER_DRIVER_ALLOWANCE = 250
       self.STEER_DRIVER_MULTIPLIER = 2
       self.STEER_THRESHOLD = 250
@@ -152,7 +152,7 @@ class HyundaiPlatformConfig(PlatformConfig):
       self.dbc_dict = {Bus.pt: "hyundai_kia_generic", Bus.radar: 'hyundai_kia_mando_front_radar_generated'}
 
     if self.flags & HyundaiFlags.MIN_STEER_32_MPH:
-      self.specs = self.specs.override(minSteerSpeed=32 * CV.MPH_TO_MS)
+      self.specs = self.specs.override(minSteerSpeed=1 * CV.MPH_TO_MS) # SMDPS
 
 
 @dataclass
@@ -216,9 +216,9 @@ class CAR(Platforms):
     flags=HyundaiFlags.CHECKSUM_6B | HyundaiFlags.LEGACY,
   )
   HYUNDAI_IONIQ = HyundaiPlatformConfig(
-    [HyundaiCarDocs("Hyundai Ioniq Hybrid 2017-19", car_parts=CarParts.common([CarHarness.hyundai_c]))],
-    CarSpecs(mass=1490, wheelbase=2.7, steerRatio=13.73, tireStiffnessFactor=0.385),
-    flags=HyundaiFlags.HYBRID | HyundaiFlags.MIN_STEER_32_MPH,
+    [HyundaiCarDocs("Hyundai Ioniq Hybrid 2017-19", min_enable_speed=6 * CV.MPH_TO_MS, car_parts=CarParts.common([CarHarness.hyundai_c]))],
+    CarSpecs(mass=1490, wheelbase=2.7, steerRatio=13.73, tireStiffnessFactor=0.385, minSteerSpeed=0),
+    flags=HyundaiFlags.HYBRID,
   )
   HYUNDAI_IONIQ_HEV_2022 = HyundaiPlatformConfig(
     [HyundaiCarDocs("Hyundai Ioniq Hybrid 2020-22", car_parts=CarParts.common([CarHarness.hyundai_h]))],  # TODO: confirm 2020-21 harness,
