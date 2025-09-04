@@ -51,6 +51,7 @@ FW_VERSIONS = {
       b'\xf1\x00AEhe SCC H-CUP      1.01 1.01 96400-G2100         ',
     ],
     (Ecu.eps, 0x7d4, None): [
+      b'\xf1\x00AE  MDPS C 1.00 1.03 56310G2200\x00 4AEHC103',
       b'\xf1\x00AE  MDPS C 1.00 1.03 56310/G2300 4AEHC103',
       b'\xf1\x00AE  MDPS C 1.00 1.03 56310G2300\x00 4AEHC103',
       b'\xf1\x00AE  MDPS C 1.00 1.05 56310/G2500 4AEHC105',
@@ -60,6 +61,7 @@ FW_VERSIONS = {
       b'\xf1\x00AE  MDPS C 1.00 1.07 56310/G2551 4AEHC107',
     ],
     (Ecu.fwdCamera, 0x7c4, None): [
+      b'\xf1\x00AEH MFC  AT EUR LHD 1.00 1.00 95740-G2200 161014',
       b'\xf1\x00AEH MFC  AT EUR LHD 1.00 1.00 95740-G2400 180222',
       b'\xf1\x00AEH MFC  AT EUR LHD 1.00 1.00 95740-G7200 160418',
       b'\xf1\x00AEH MFC  AT EUR RHD 1.00 1.00 95740-G2400 180222',
